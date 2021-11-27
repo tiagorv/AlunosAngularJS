@@ -1,12 +1,130 @@
-<h1 class="mt-4">Cadastro</h1>
+<h1 class="mt-4">Aluno</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Informações do Aluno</li>
+    <li class="breadcrumb-item active">{{ aluno.id ? 'Edição' : 'Cadastro'}}</li>
 </ol>
 
 <div class="container">
-    <form>
-        <input type="text">
+    <form #alunoForm="ngForm" (ngSubmit)="gravarAluno()"> 
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="sucesso == true">
+                    Aluno salvo/atualizado com sucesso!!!
+                </div>
+
+                <div class="alert alert-danger" role="alert" 
+                *ngFor="let meuErro of errosApi">
+                    {{ meuErro }}
+                </div>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Id:</label>
+                    <input type="text" class="form-control" disabled=true 
+                    [(ngModel)]="aluno.id" name="id" >
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="aluno.nome" name="nome">
+                </div>
+            </div>            
+        </div>
 
 
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Idade:</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="aluno.idade" name="idade">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Data Matrícula:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="aluno.dataMatricula" name="dataMatricula">
+                </div>
+            </div>            
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Número:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="aluno.numero" name="numero">
+                </div>
+            </div>            
+        </div>        
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label>Rua:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="aluno.rua" name="rua">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>CEP:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="aluno.cep" name="cep">
+                </div>
+            </div>            
+        </div>                
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Bairro:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="aluno.bairro" name="bairro">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Cidade:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="aluno.cidade" name="cidade">
+                </div>
+            </div>            
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>UF:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]='aluno.uf' name="uf">
+                </div>
+            </div>                        
+        </div>                        
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" *ngIf="!aluno.id">
+                    <i class="fa fa-save"></i>
+                    Salvar
+                </button> 
+
+                <button type="submit" class="btn btn-primary" *ngIf="aluno.id">
+                    <i class="fa fa-sync-alt"></i>
+                    Atualizar
+                </button>                 
+
+                <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                    <i class="fa fa-arrow-alt-circle-left"></i>
+                    Voltar
+                </button>                 
+            </div>
+        </div>
     </form>
 </div>
