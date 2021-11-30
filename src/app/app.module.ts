@@ -9,6 +9,10 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component'
 import { AlunosModule } from './alunos/alunos.module';
 import { AlunosService } from './alunos.service';
+import { DisciplinasModule } from './disciplinas/disciplinas.module';
+import { DisciplinasService } from './disciplinas.service';
+import { NotaModule } from './nota/nota.module';
+import { NotaService } from './nota.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +24,14 @@ import { AlunosService } from './alunos.service';
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-    AlunosModule
+    AlunosModule,
+    DisciplinasModule,
+    NotaModule
   ],
   providers: [
-    AlunosService
+    AlunosService,
+    DisciplinasService,
+    NotaService
   ],
   bootstrap: [AppComponent]
 })

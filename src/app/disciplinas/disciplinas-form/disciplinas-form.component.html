@@ -1,0 +1,64 @@
+<h1 class="mt-4">Disciplinas</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro</li>
+</ol>
+
+<div class="container">
+    <form #disciplinaForm="ngForm" (ngSubmit)="gravarDisciplina()">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="sucesso == true">
+                    Disciplina salva/atualizada com sucesso!!!
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngFor="let meuErro of errosApi">
+                    {{ meuErro }}
+                </div>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Id:</label>
+                    <input type="text" class="form-control" disabled=true 
+                    [(ngModel)]="disciplina.id" name="id">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Descrição:</label>
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="disciplina.descricao" name="descricao" >
+                </div>
+            </div>            
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Número Horas:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="disciplina.numeroHoras" name="numeroHoras">
+                </div>
+            </div>                        
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" *ngIf="!disciplina.id">
+                    <i class="fa fa-save"></i>Salvar
+                </button>
+
+                <button type="submit" class="btn btn-primary" *ngIf="disciplina.id">
+                    <i class="fa fa-sync-alt"></i>Atualizar
+                </button>                
+
+                <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()" >
+                    <i class="fa fa-backspace"></i>Voltar
+                </button>                
+            </div>
+        </div>
+
+    </form>
+</div>
