@@ -27,7 +27,7 @@ export class AlunosListaComponent implements OnInit {
   }
 
   novoCadastro(){
-      this.minhaRota.navigate(['/alunosForm'])
+      this.minhaRota.navigate(['/alunos/Form'])
   }
 
   preparaDelecao(aluno: Aluno){

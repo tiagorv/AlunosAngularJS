@@ -66,7 +66,7 @@ export class DisciplinasFormComponent implements OnInit {
   }
 
   voltarParaListagem(){
-    this.minhaRota.navigate(['/disciplinasLista']);
+    this.minhaRota.navigate(['/disciplinas/Lista']);
   }
 
 }

@@ -27,7 +27,7 @@ export class DisciplinasListaComponent implements OnInit {
   }
 
   novoCadastro(){
-      this.minhaRota.navigate(['/disciplinasForm']);
+      this.minhaRota.navigate(['/disciplinas/Form']);
   }
 
   preparaDelecao(disciplina: Disciplina){

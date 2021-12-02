@@ -66,7 +66,7 @@ export class AlunosFormComponent implements OnInit {
   }
 
   voltarParaListagem(){
-      this.minhaRota.navigate(['/alunosLista']);
+      this.minhaRota.navigate(['/alunos/Lista']);
   }
 
 }
